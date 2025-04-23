@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elegant Birthday Wishes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f4f0;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .elegant-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform: translateX(100%);
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 2rem;
+        }
+        
+        .slide.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .slide.left {
+            transform: translateX(-100%);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #f5d993 0%, #f2c94c 100%);
+        }
+        
+        .rose-gradient {
+            background: linear-gradient(135deg, #f9d5d5 0%, #f6b8b8 100%);
+        }
+        
+        /* Custom scrollbar for slides */
+        .slide::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .slide::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        
+        .slide::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.4);
+            border-radius: 10px;
+        }
+        
+        .slide::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.6);
+        }
+        
+        .content-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+        
+        @media (min-width: 768px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+            }
+            
+            .slide-container {
+                max-width: 32rem;
+                height: 38rem;
+                border-radius: 1.5rem;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1 - Elegant Greeting -->
+        <div class="slide active flex flex-col items-center text-center gold-gradient">
+            <div class="content-container relative z-10">
+                <div class="bg-white bg-opacity-30 backdrop-blur-sm rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 floating">
+                    <span class="text-4xl">🎉</span>
+                </div>
+                <h1 class="elegant-font text-4xl md:text-5xl mb-4 text-white">Happy Birthday</h1>
+                <p class="elegant-font text-5xl md:text-6xl mb-6 text-white">Liaa</p>
+                <p class="text-white mb-8 max-w-md">Maaf yaa telat banget hehe :))</p>
+                <button onclick="nextSlide()" class="bg-white hover:bg-gray-100 text-yellow-700 font-medium py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-md">
+                    Lanjut <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Slide 2 - Celebration -->
+        <div class="slide flex flex-col items-center text-center rose-gradient">
+            <div class="content-container relative z-10">
+                <div class="bg-white bg-opacity-30 backdrop-blur-sm rounded-full w-40 h-40 flex items-center justify-center mx-auto mb-6 pulse">
+                    <span class="text-5xl">🎂</span>
+                </div>
+                <h2 class="elegant-font text-3xl md:text-4xl mb-4 text-white">SELAMAT ULANG TAHUN YA!</h2>
+                <div class="max-w-md mx-auto mb-8">
+                    <p class="text-white text-left md:text-center leading-relaxed">
+                        Ulang tahun ke brapa si? 20th ya klo ga salah, kepala 2 pasti ada aja se plotwistnya...
+                        Tapi gapapa, yaa semoga di umur yang bertambah ini lia diberi kesehatan terus menerus, rezeki yang tak terputus, kelancaran di segala hal dan yang terpenting selalu bahagia yaa. Eh iya maaf cuma bisa ngasih itu, yaa sukur" bisa buat nemenin tiap pendakianmu tpi jngan lupa IZIN MAMA kalo mau eksplore gunung,hati-hati juga di tiap langkahnya. 
+                    </p>
+                </div>
+                <div class="flex justify-center space-x-4 mt-auto">
+                    <button onclick="prevSlide()" class="bg-white bg-opacity-30 hover:bg-opacity-40 text-pink-600 font-medium py-2 px-6 rounded-full transition-all">
+                        <i class="fas fa-arrow-left mr-2"></i> Back
+                    </button>
+                    <button onclick="firstSlide()" class="bg-white hover:bg-gray-100 text-pink-600 font-medium py-2 px-6 rounded-full transition-all transform hover:scale-105">
+                        Restart <i class="fas fa-redo ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'left');
+                slide.scrollTop = 0; // Reset scroll position when changing slides
+            });
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            slides[currentSlide].classList.add('left');
+            showSlide(currentSlide - 1);
+        }
+        
+        function firstSlide() {
+            showSlide(0);
+        }
+        
+        // Prevent accidental zooming on mobile
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
